@@ -1,0 +1,95 @@
+<div data-ng-controller="deAllocationCtrl as allocations" id="deAllocate">
+    <br>
+    <br>
+    <!-- Search bar -->
+    <form class="form-inline" name="searchForm">
+        <div class="form-group">
+            <label for="searchPractitioner"> Search for Health Professional</label>&nbsp;&nbsp;
+            <input tabindex="300" class="search-box" id="searchPractitioner" onKeyDown="limitText(8, searchForm.searchPractitioner);" onKeyUp="limitText(8, searchForm.searchPractitioner);"
+            maxlength="8" placeholder="Type HP unique ID" type="text" max="8" name="searchHP" data-ng-model="searchHP" required
+            />&nbsp;
+            <input tabindex="301" id="search" type="submit" value="Search" data-ng-click="getAllocations()">
+
+            <p class="alert-danger" data-ng-show="searchInputNotValid"><img ng-src="images/gov-uk/exclamation.png" width="18" height="18" />&nbsp;{{healthSearchInputFormatMsg}}</p>
+            <p class="alert-danger" data-ng-show="technicalError"><img ng-src="images/gov-uk/exclamation.png" width="18" height="18" />&nbsp;{{technicalErrorMsg}}</p>
+            <p class="alert-danger" data-ng-show="privilegesError"><img ng-src="images/gov-uk/exclamation.png" width="18" height="18" />&nbsp;{{privilegesErrorMsg}}</p>
+        </div>
+    </form>
+    <hr/>
+    <table class="table" id="allocationsTable" data-ng-controller="accessibilityCtrl">
+        <thead>
+            <tr>
+                <th class="tHeadBold" colspan="100%">
+                    <label id="currentAllocationsText">
+                        Health Professional's Current Allocations
+                    </label>
+                </th>
+            </tr>
+        </thead>
+        <thead>
+            <tr>
+                <th class="tHead" colspan="100%">
+                    <label id="hpStaffNumberText">
+                        HP Staff Number: {{ staffNumber }}
+                    </label>
+                </th>
+            </tr>
+        </thead>
+        <thead>
+            <th tabindex="302" data-ng-keypress="onKeyPress($event, 'ninoOrCrn')" data-ng-click="sortType = 'ninoOrCrn'; sortReverse = !sortReverse" class="sortable-th">
+                Current Allocated
+                <br>Assessments
+                <i data-ng-show="sortType == 'ninoOrCrn' && !sortReverse" class="sort-triangle-up"></i>
+                <i data-ng-show="sortType == 'ninoOrCrn' && sortReverse" class="sort-triangle-down"></i>
+                <i data-ng-show="sortType != 'ninoOrCrn'" class="sort-triangle-default"></i>
+            </th>
+            <th tabindex="303" data-ng-keypress="onKeyPress($event, 'state')" data-ng-click="sortType = 'state'; sortReverse = !sortReverse" class="sortable-th">
+                Status
+                <i data-ng-show="sortType == 'state' && !sortReverse" class="sort-triangle-up"></i>
+                <i data-ng-show="sortType == 'state' && sortReverse" class="sort-triangle-down"></i>
+                <i data-ng-show="sortType != 'state'" class="sort-triangle-default"></i> </th>
+            <th tabindex="304" data-ng-keypress="onKeyPress($event, 'stateDateTime')" data-ng-click="sortType = 'stateDateTime'; sortReverse = !sortReverse" class="sortable-th">
+                Allocated On
+                <i data-ng-show="sortType == 'stateDateTime' && !sortReverse" class="sort-triangle-up"></i>
+                <i data-ng-show="sortType == 'stateDateTime' && sortReverse" class="sort-triangle-down"></i>
+                <i data-ng-show="sortType != 'stateDateTime'" class="sort-triangle-default"></i>
+            </th>
+            <th tabindex="305" data-ng-keypress="onKeyPress($event, 'allocatingUserId')" data-ng-click="sortType = 'allocatingUserId'; sortReverse = !sortReverse" class="sortable-th">
+                Allocated by
+                <i data-ng-show="sortType == 'allocatingUserId' && !sortReverse" class="sort-triangle-up"></i>
+                <i data-ng-show="sortType == 'allocatingUserId' && sortReverse" class="sort-triangle-down"></i>
+                <i data-ng-show="sortType != 'allocatingUserId'" class="sort-triangle-default"></i>
+            </th>
+            <th>
+                <button tabindex="306" id="selectAll" class="btn-fixed-size" data-ng-click="selectAllDeAlloc()" data-ng-disabled="disableSelectAll">{{ selectedAllDeAlloc == true ? 'De-Select All' : 'Select All' }}</button>
+            </th>
+            <th>
+
+            </th>
+        </thead>
+        <tbody>
+            <tr data-ng-repeat="allocation in allocations | orderBy:sortType:sortReverse" data-ng-class="{'selected-row':allocation.selected}"
+            data-ng-click="setClickedRowDeAlloc(allocation)">
+                <td>{{ allocation.ninoOrCrn }}</td>
+                <td>{{ allocation.state }}</td>
+                <td>{{ allocation.allocatedDateTime | date:"dd/MM/yyyy HH:mm"}}</td>
+                <td>{{ allocation.allocatingUserId }}</td>
+                <td>
+                    <button tabindex="307" class="btn-fixed-size" id="btn">{{ allocation.selected == true ? 'De-Select' : 'Select' }}</button>
+                </td>
+                <td><span data-ng-class="{'rowError':!allocation.selected}"><img ng-src="images/gov-uk/exclamation.png" width="18" height="18" data-ng-show="allocation.errorMessage"/>&nbsp;{{ allocation.errorMessage }}</span></td>
+            </tr>
+            <tr height="100" id="noAllocations" data-ng-show="noAllocations">
+                <td colspan="6" align="center" data-ng-style="{'vertical-align':'middle'}">{{ noAllocationsMsg }}</td>
+            </tr>
+            <tr>
+                <td colspan="4"></td>
+                <td>
+                    <button tabindex="308" id="de-Allocate" class="btn-fixed-size" data-ng-click="deAllocate()" data-ng-disabled="disableDeAllocate">DE-ALLOCATE</button>
+                </td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+    <hr/>
+</div>

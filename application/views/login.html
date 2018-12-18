@@ -1,0 +1,39 @@
+<div class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3" data-ng-style="{'padding-top': '50px;'}">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="text-center" id="welcomeText">Welcome to MAPS</h4>
+
+      <div class="text-center text-danger" data-ng-if="securityDisabled">Security/Authentication has been disabled</div>
+      <div class="text-center">
+        <select class="selectBox">
+          <option value="pip" selected="selected">PIP</option>
+        </select>
+      </div>
+    </div>
+    <div class="panel-body">
+      <div data-ng-show="formErrors.errors" class="text-center" data-ng-style="{'padding-top': '10px', 'padding-bottom': '10px'}">
+        <span data-ng-style="{'color': 'red'}" data-ng-bind="formErrors.errors"></span>
+      </div>
+      <div  data-ng-if="$root.timedOut" class="text-center text-danger">You have been timed out of MAPS UI.</div>
+      <form novalidate="novalidate" autocomplete="off" class="form-horizontal" role="form" name="loginForm">
+        <div class="form-group">
+          <label class="control-label-left col-md-4" for="userId" id="userLabel">User ID</label>
+          <div class="col-md-8">
+            <input type="text" data-ng-model="credentials.username" id="username" class="form-control" data-ng-required="true" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label-left col-md-4" for="password" id="passwordLabel">Password</label>
+          <div class="col-md-8">
+            <input type="password" data-ng-model="credentials.password" id="userpassword" class="form-control" data-ng-required="true" />
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-sm-12 controls">
+            <button data-ng-click="login(credentials)" class="btn btn-primary pull-right">Log In <i class="glyphicon glyphicon-log-in"></i></button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

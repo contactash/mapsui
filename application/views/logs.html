@@ -1,0 +1,38 @@
+<div>
+    <h1 class="text-center">Technical Exception Logs</h1>
+    <button class="btn btn-danger" ng-click="deleteAll()">Purge All</button> <button class="btn btn-info" ng-click="reloadLogs()">Reload</button>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Date</th>
+            <th>NINO/CRN</th>
+            <th>AssessmentID</th>
+            <th>Operation Type</th>
+            <th>Fault Actor</th>
+            <th>Fault String</th>
+            <th>Fault Details</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-show="!logs.length">
+            <td id="noLogs">
+                No Logs Found.
+            </td>
+        </tr>
+        <tr ng-repeat="logEntry in logs track by $index">
+            <td>{{logEntry.logTime | date:'dd/MM/yyyy HH:mm:ss.sss'}}</td>
+            <td>{{logEntry.nino}}/{{logEntry.crn}}</td>
+            <td>{{logEntry.assessmentId}}</td>
+            <td>{{logEntry.operationType}}</td>
+            <td>{{logEntry.faultActor}}</td>
+            <td>{{logEntry.faultString}}</td>
+            <td>{{logEntry.faultDetails}}
+                <p ng-repeat="vError in logEntry.validationErrors track by $index">{{vError.errorString}} - {{vError.errorDescription}}</p>
+
+            </td>
+            <td><a ng-click="deleteItem(logEntry.key)"><span class="glyphicon glyphicon-trash"></span></a></td>
+        </tr>
+        </tbody>
+    </table>
+</div>

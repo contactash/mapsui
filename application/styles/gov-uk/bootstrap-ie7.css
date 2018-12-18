@@ -1,0 +1,1236 @@
+
+/*
+  IE7 Bootstrap 3 fixes
+  via https://github.com/coliff/bootstrap-ie7
+
+  * Linearises grid
+  * Doesn't fix IE6, but it helps.
+  * Fixes glyphicon font
+  * Fixes small layout issues mostly by applying hasLayout
+*/
+/* line 12, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.col-xs-1,
+.col-xs-2,
+.col-xs-3,
+.col-xs-4,
+.col-xs-5,
+.col-xs-6,
+.col-xs-7,
+.col-xs-8,
+.col-xs-9,
+.col-xs-10,
+.col-xs-11,
+.col-xs-12,
+.col-sm-1,
+.col-sm-2,
+.col-sm-3,
+.col-sm-4,
+.col-sm-5,
+.col-sm-6,
+.col-sm-7,
+.col-sm-8,
+.col-sm-9,
+.col-sm-10,
+.col-sm-11,
+.col-sm-12,
+.col-md-1,
+.col-md-2,
+.col-md-3,
+.col-md-4,
+.col-md-5,
+.col-md-6,
+.col-md-7,
+.col-md-8,
+.col-md-9,
+.col-md-10,
+.col-md-11,
+.col-md-12,
+.row {
+  padding-left: 0;
+  padding-right: 0;
+  width: 100% !important;
+  float: none !important;
+}
+
+/* line 55, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.row {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+/* line 60, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+audio,
+canvas,
+video {
+  display: inline;
+  zoom: 1;
+}
+
+/* line 67, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+html {
+  font-size: 100%;
+}
+
+/* line 71, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+body {
+  margin: 0;
+}
+
+/* line 75, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+ul,
+ol,
+dl {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+/* line 82, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+legend {
+  margin-left: -7px;
+}
+
+/* line 86, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+img {
+  width: auto;
+  height: auto;
+  border: 0;
+  -ms-interpolation-mode: bicubic;
+}
+
+/*
+  Remove inner spacing in IE 7 without affecting normal text inputs.
+  Reduce Bootstrap 3 button padding from 6px to 4px to keep buttons same height.
+*/
+/* line 97, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+button,
+input[type="reset"],
+input[type="submit"] {
+  overflow: visible;
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+/* Remove excess padding in IE 7 */
+/* line 106, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+input[type="checkbox"],
+input[type="radio"] {
+  margin-top: 5px;
+  margin-right: 10px;
+  height: 13px;
+  width: 13px;
+}
+
+/* Bootstrap 3 text inputs have height that doesn't include
+   12px of padding due to border-box. Reduce height from 34px
+   to 22px to account for padding in IE7 */
+/* line 117, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+input[type="text"],
+input[type="password"] {
+  height: 22px;
+}
+
+/* line 122, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.container,
+.container-fluid {
+  zoom: 1;
+}
+
+/* line 127, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.row {
+  zoom: 1;
+}
+
+/* line 131, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.dl-horizontal {
+  zoom: 1;
+}
+
+/* line 135, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.help-block {
+  display: inline;
+  zoom: 1;
+}
+
+/* line 140, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.form-horizontal .form-group {
+  zoom: 1;
+}
+
+/* line 144, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.dropdown-toggle {
+  margin-bottom: -3px;
+}
+
+/* line 148, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.dropdown-menu .divider {
+  width: 100%;
+  margin: -5px 0 5px;
+}
+
+/* line 153, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.list-group {
+  margin-left: 0;
+}
+
+/* line 157, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+ul .list-group-item {
+  list-style: none;
+}
+
+/* line 161, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.sr-only {
+  clip: rect(0 0 0 0);
+}
+
+/* line 165, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.list-inline > li {
+  display: inline;
+  zoom: 1;
+}
+
+/* Cleanup navigation tabs
+  * Clear container
+  * Give selected tab more contrast and hide faulty border-top
+*/
+/* line 175, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.nav-tabs {
+  overflow: hidden;
+}
+
+/* line 179, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.nav-tabs li.active a {
+  background: #ddd;
+  border: 1px solid #ddd;
+}
+
+/*
+  Cleanup breadcrumb
+  * Remove default indent for unordered list
+  * Display breadcrumbs inline with some margin, generated
+    content doesn't appear, so there's no divider.
+*/
+/* line 191, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.breadcrumb > li {
+  display: inline;
+  margin-right: 10px;
+}
+
+/*
+  Fix glyphicons via generated content fallback
+  Background on this fix: https://github.com/FortAwesome/Font-Awesome/issues/38
+*/
+/* line 202, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon {
+  text-decoration: inherit;
+  line-height: normal;
+}
+
+/* line 206, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-adjust {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe063;');
+}
+
+/* line 209, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-align-center {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe053;');
+}
+
+/* line 212, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-align-justify {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe055;');
+}
+
+/* line 215, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-align-left {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe052;');
+}
+
+/* line 218, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-align-right {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe054;');
+}
+
+/* line 221, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-arrow-down {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe094;');
+}
+
+/* line 224, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-arrow-left {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe091;');
+}
+
+/* line 227, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-arrow-right {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe092;');
+}
+
+/* line 230, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-arrow-up {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe093;');
+}
+
+/* line 233, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-asterisk {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#x002a;');
+}
+
+/* line 236, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-backward {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe071;');
+}
+
+/* line 239, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-ban-circle {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe090;');
+}
+
+/* line 242, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-barcode {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe040;');
+}
+
+/* line 245, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-bell {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe123;');
+}
+
+/* line 248, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-bold {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe048;');
+}
+
+/* line 251, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-book {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe043;');
+}
+
+/* line 254, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-bookmark {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe044;');
+}
+
+/* line 257, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-briefcase {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe139;');
+}
+
+/* line 260, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-bullhorn {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe122;');
+}
+
+/* line 263, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-calendar {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe109;');
+}
+
+/* line 266, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-camera {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe046;');
+}
+
+/* line 269, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-certificate {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe124;');
+}
+
+/* line 272, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-check {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe067;');
+}
+
+/* line 275, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-chevron-down {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe114;');
+}
+
+/* line 278, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-chevron-left {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe079;');
+}
+
+/* line 281, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-chevron-right {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe080;');
+}
+
+/* line 284, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-chevron-up {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe113;');
+}
+
+/* line 287, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-circle-arrow-down {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe134;');
+}
+
+/* line 290, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-circle-arrow-left {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe132;');
+}
+
+/* line 293, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-circle-arrow-right {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe131;');
+}
+
+/* line 296, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-circle-arrow-up {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe133;');
+}
+
+/* line 299, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-cloud {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#x2601;');
+}
+
+/* line 302, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-cloud-download {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe197;');
+}
+
+/* line 305, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-cloud-upload {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe198;');
+}
+
+/* line 308, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-cog {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe019;');
+}
+
+/* line 311, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-collapse {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe159;');
+}
+
+/* line 314, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-collapse-down {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe159;');
+}
+
+/* line 317, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-collapse-top {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe160;');
+}
+
+/* line 320, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-collapse-up {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe160;');
+}
+
+/* line 323, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-comment {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe111;');
+}
+
+/* line 326, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-compressed {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe181;');
+}
+
+/* line 329, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-copyright-mark {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe194;');
+}
+
+/* line 332, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-credit-card {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe177;');
+}
+
+/* line 335, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-cutlery {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe179;');
+}
+
+/* line 338, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-dashboard {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe141;');
+}
+
+/* line 341, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-download {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe026;');
+}
+
+/* line 344, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-download-alt {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe025;');
+}
+
+/* line 347, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-earphone {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe182;');
+}
+
+/* line 350, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-edit {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe065;');
+}
+
+/* line 353, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-eject {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe078;');
+}
+
+/* line 356, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-envelope {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#x2709;');
+}
+
+/* line 359, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-euro {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#x20ac;');
+}
+
+/* line 362, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-exclamation-sign {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe101;');
+}
+
+/* line 365, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-expand {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe158;');
+}
+
+/* line 368, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-export {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe170;');
+}
+
+/* line 371, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-eye-close {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe106;');
+}
+
+/* line 374, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-eye-open {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe105;');
+}
+
+/* line 377, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-facetime-video {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe059;');
+}
+
+/* line 380, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-fast-backward {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe070;');
+}
+
+/* line 383, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-fast-forward {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe076;');
+}
+
+/* line 386, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-file {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe022;');
+}
+
+/* line 389, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-film {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe009;');
+}
+
+/* line 392, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-filter {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe138;');
+}
+
+/* line 395, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-fire {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe104;');
+}
+
+/* line 398, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-flag {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe034;');
+}
+
+/* line 401, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-flash {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe162;');
+}
+
+/* line 404, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-floppy-disk {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe172;');
+}
+
+/* line 407, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-floppy-open {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe176;');
+}
+
+/* line 410, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-floppy-remove {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe174;');
+}
+
+/* line 413, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-floppy-save {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe175;');
+}
+
+/* line 416, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-floppy-saved {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe173;');
+}
+
+/* line 419, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-folder-close {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe117;');
+}
+
+/* line 422, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-folder-open {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe118;');
+}
+
+/* line 425, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-font {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe047;');
+}
+
+/* line 428, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-forward {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe075;');
+}
+
+/* line 431, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-fullscreen {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe140;');
+}
+
+/* line 434, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-gbp {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe149;');
+}
+
+/* line 437, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-gift {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe102;');
+}
+
+/* line 440, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-glass {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe001;');
+}
+
+/* line 443, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-globe {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe135;');
+}
+
+/* line 446, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-hand-down {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe130;');
+}
+
+/* line 449, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-hand-left {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe128;');
+}
+
+/* line 452, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-hand-right {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe127;');
+}
+
+/* line 455, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-hand-up {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe129;');
+}
+
+/* line 458, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-hdd {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe121;');
+}
+
+/* line 461, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-hd-video {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe187;');
+}
+
+/* line 464, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-header {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe180;');
+}
+
+/* line 467, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-headphones {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe035;');
+}
+
+/* line 470, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-heart {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe005;');
+}
+
+/* line 473, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-heart-empty {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe143;');
+}
+
+/* line 476, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-home {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe021;');
+}
+
+/* line 479, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-import {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe169;');
+}
+
+/* line 482, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-inbox {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe028;');
+}
+
+/* line 485, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-indent-left {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe057;');
+}
+
+/* line 488, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-indent-right {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe058;');
+}
+
+/* line 491, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-info-sign {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe086;');
+}
+
+/* line 494, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-italic {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe049;');
+}
+
+/* line 497, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-leaf {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe103;');
+}
+
+/* line 500, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-link {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe144;');
+}
+
+/* line 503, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-list {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe056;');
+}
+
+/* line 506, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-list-alt {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe032;');
+}
+
+/* line 509, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-lock {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe033;');
+}
+
+/* line 512, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-log-in {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe161;');
+}
+
+/* line 515, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-log-out {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe163;');
+}
+
+/* line 518, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-magnet {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe112;');
+}
+
+/* line 521, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-map-marker {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe062;');
+}
+
+/* line 524, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-minus {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#x2212;');
+}
+
+/* line 527, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-minus-sign {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe082;');
+}
+
+/* line 530, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-move {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe068;');
+}
+
+/* line 533, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-music {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe002;');
+}
+
+/* line 536, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-new-window {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe164;');
+}
+
+/* line 539, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-off {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe017;');
+}
+
+/* line 542, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-ok {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe013;');
+}
+
+/* line 545, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-ok-circle {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe089;');
+}
+
+/* line 548, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-ok-sign {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe084;');
+}
+
+/* line 551, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-open {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe167;');
+}
+
+/* line 554, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-paperclip {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe142;');
+}
+
+/* line 557, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-pause {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe073;');
+}
+
+/* line 560, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-pencil {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#x270f;');
+}
+
+/* line 563, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-phone {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe145;');
+}
+
+/* line 566, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-phone-alt {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe183;');
+}
+
+/* line 569, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-picture {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe060;');
+}
+
+/* line 572, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-plane {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe108;');
+}
+
+/* line 575, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-play {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe072;');
+}
+
+/* line 578, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-play-circle {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe029;');
+}
+
+/* line 581, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-plus {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#x002b;');
+}
+
+/* line 584, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-plus-sign {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe081;');
+}
+
+/* line 587, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-print {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe045;');
+}
+
+/* line 590, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-pushpin {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe146;');
+}
+
+/* line 593, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-qrcode {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe039;');
+}
+
+/* line 596, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-question-sign {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe085;');
+}
+
+/* line 599, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-random {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe110;');
+}
+
+/* line 602, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-record {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe165;');
+}
+
+/* line 605, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-refresh {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe031;');
+}
+
+/* line 608, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-registration-mark {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe195;');
+}
+
+/* line 611, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-remove {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe014;');
+}
+
+/* line 614, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-remove-circle {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe088;');
+}
+
+/* line 617, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-remove-sign {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe083;');
+}
+
+/* line 620, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-repeat {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe030;');
+}
+
+/* line 623, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-resize-full {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe096;');
+}
+
+/* line 626, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-resize-horizontal {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe120;');
+}
+
+/* line 629, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-resize-small {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe097;');
+}
+
+/* line 632, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-resize-vertical {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe119;');
+}
+
+/* line 635, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-retweet {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe115;');
+}
+
+/* line 638, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-road {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe024;');
+}
+
+/* line 641, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-save {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe166;');
+}
+
+/* line 644, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-saved {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe168;');
+}
+
+/* line 647, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-screenshot {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe087;');
+}
+
+/* line 650, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-sd-video {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe186;');
+}
+
+/* line 653, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-search {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe003;');
+}
+
+/* line 656, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-send {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe171;');
+}
+
+/* line 659, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-share {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe066;');
+}
+
+/* line 662, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-share-alt {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe095;');
+}
+
+/* line 665, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-shopping-cart {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe116;');
+}
+
+/* line 668, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-signal {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe018;');
+}
+
+/* line 671, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-sort {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe150;');
+}
+
+/* line 674, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-sort-by-alphabet {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe151;');
+}
+
+/* line 677, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-sort-by-alphabet-alt {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe152;');
+}
+
+/* line 680, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-sort-by-attributes {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe155;');
+}
+
+/* line 683, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-sort-by-attributes-alt {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe156;');
+}
+
+/* line 686, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-sort-by-order {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe153;');
+}
+
+/* line 689, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-sort-by-order-alt {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe154;');
+}
+
+/* line 692, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-sound-5-1 {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe191;');
+}
+
+/* line 695, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-sound-6-1 {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe192;');
+}
+
+/* line 698, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-sound-7-1 {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe193;');
+}
+
+/* line 701, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-sound-dolby {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe190;');
+}
+
+/* line 704, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-sound-stereo {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe189;');
+}
+
+/* line 707, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-star {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe006;');
+}
+
+/* line 710, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-star-empty {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe007;');
+}
+
+/* line 713, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-stats {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe185;');
+}
+
+/* line 716, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-step-backward {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe069;');
+}
+
+/* line 719, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-step-forward {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe077;');
+}
+
+/* line 722, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-stop {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe074;');
+}
+
+/* line 725, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-subtitles {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe188;');
+}
+
+/* line 728, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-tag {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe041;');
+}
+
+/* line 731, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-tags {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe042;');
+}
+
+/* line 734, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-tasks {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe137;');
+}
+
+/* line 737, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-text-height {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe050;');
+}
+
+/* line 740, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-text-width {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe051;');
+}
+
+/* line 743, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-th {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe011;');
+}
+
+/* line 746, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-th-large {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe010;');
+}
+
+/* line 749, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-th-list {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe012;');
+}
+
+/* line 752, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-thumbs-down {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe126;');
+}
+
+/* line 755, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-thumbs-up {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe125;');
+}
+
+/* line 758, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-time {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe023;');
+}
+
+/* line 761, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-tint {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe064;');
+}
+
+/* line 764, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-tower {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe184;');
+}
+
+/* line 767, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-transfer {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe178;');
+}
+
+/* line 770, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-trash {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe020;');
+}
+
+/* line 773, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-tree-conifer {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe199;');
+}
+
+/* line 776, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-tree-deciduous {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe200;');
+}
+
+/* line 779, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-unchecked {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe157;');
+}
+
+/* line 782, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-upload {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe027;');
+}
+
+/* line 785, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-usd {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe148;');
+}
+
+/* line 788, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-user {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe008;');
+}
+
+/* line 791, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-volume-down {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe037;');
+}
+
+/* line 794, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-volume-off {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe036;');
+}
+
+/* line 797, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-volume-up {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe038;');
+}
+
+/* line 800, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-warning-sign {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe107;');
+}
+
+/* line 803, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-wrench {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe136;');
+}
+
+/* line 806, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-zoom-in {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe015;');
+}
+
+/* line 809, ../../../../../app/assets/stylesheets/govuk_admin_template/bootstrap-ie7.scss */
+.glyphicon-zoom-out {
+  zoom: expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe016;');
+}

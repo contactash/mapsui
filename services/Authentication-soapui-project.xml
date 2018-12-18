@@ -1,0 +1,1063 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="b00e1596-63a4-4bc8-a5f0-9124d87d6114" activeEnvironment="Default" name="Authentication" soapui-version="5.2.1" abortOnError="false" runType="SEQUENTIAL" resourceRoot="" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="f46a1095-a245-4377-bd16-5b8ea493067c" wsaVersion="NONE" name="SecurityTokenServiceSoapBinding" type="wsdl" bindingName="{http://docs.oasis-open.org/ws-sx/ws-trust/200512}SecurityTokenServiceSoapBinding" soapVersion="1_2" anonymous="optional" definition="http://localhost:8081/requestsecuritytoken?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://localhost:8081/requestsecuritytoken?wsdl"><con:part><con:url>http://localhost:8081/requestsecuritytoken?wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="SecurityTokenService" targetNamespace="http://docs.oasis-open.org/ws-sx/ws-trust/200512" xmlns:ns1="http://docs.oasis-open.org/ws-sx/ws-trust/200512/" xmlns:ns2="http://schemas.xmlsoap.org/wsdl/soap/http" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:tns="http://docs.oasis-open.org/ws-sx/ws-trust/200512" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:import location="http://localhost:8081/requestsecuritytoken?wsdl=SecurityTokenService.wsdl" namespace="http://docs.oasis-open.org/ws-sx/ws-trust/200512/"></wsdl:import>
+  <wsdl:binding name="SecurityTokenServiceSoapBinding" type="ns1:SecurityTokenService">
+    <soap12:binding style="document" transport="http://www.w3.org/2003/05/soap/bindings/HTTP/"/>
+    <wsdl:operation name="RequestSecurityToken2">
+      <soap12:operation soapAction="" style="document"/>
+      <wsdl:input name="RequestSecurityToken2">
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="RequestSecurityToken2Response">
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RequestSecurityToken">
+      <soap12:operation soapAction="" style="document"/>
+      <wsdl:input name="RequestSecurityToken">
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="RequestSecurityTokenResponse">
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SecurityTokenService">
+    <wsdl:port binding="tns:SecurityTokenServiceSoapBinding" name="SecurityTokenService">
+      <soap:address location="requestsecuritytoken"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part><con:part><con:url>http://localhost:8081/requestsecuritytoken?wsdl=SecurityTokenService.wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="SecurityTokenService" targetNamespace="http://docs.oasis-open.org/ws-sx/ws-trust/200512/" xmlns:ns1="http://docs.oasis-open.org/ws-sx/ws-trust/200512/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+    <xs:schema elementFormDefault="qualified" targetNamespace="http://www.w3.org/2000/09/xmldsig#" version="1.0" xmlns:tns="http://www.w3.org/2000/09/xmldsig#" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="CanonicalizationMethod" type="tns:CanonicalizationMethodType"/>
+      <xs:element name="DSAKeyValue" type="tns:DSAKeyValueType"/>
+      <xs:element name="DigestMethod" type="tns:DigestMethodType"/>
+      <xs:element name="DigestValue" type="xs:base64Binary"/>
+      <xs:element name="KeyInfo" type="tns:KeyInfoType"/>
+      <xs:element name="KeyName" type="xs:string"/>
+      <xs:element name="KeyValue" type="tns:KeyValueType"/>
+      <xs:element name="Manifest" type="tns:ManifestType"/>
+      <xs:element name="MgmtData" type="xs:string"/>
+      <xs:element name="Object" type="tns:ObjectType"/>
+      <xs:element name="PGPData" type="tns:PGPDataType"/>
+      <xs:element name="RSAKeyValue" type="tns:RSAKeyValueType"/>
+      <xs:element name="Reference" type="tns:ReferenceType"/>
+      <xs:element name="RetrievalMethod" type="tns:RetrievalMethodType"/>
+      <xs:element name="SPKIData" type="tns:SPKIDataType"/>
+      <xs:element name="Signature" type="tns:SignatureType"/>
+      <xs:element name="SignatureMethod" type="tns:SignatureMethodType"/>
+      <xs:element name="SignatureProperties" type="tns:SignaturePropertiesType"/>
+      <xs:element name="SignatureProperty" type="tns:SignaturePropertyType"/>
+      <xs:element name="SignatureValue" type="tns:SignatureValueType"/>
+      <xs:element name="SignedInfo" type="tns:SignedInfoType"/>
+      <xs:element name="Transform" type="tns:TransformType"/>
+      <xs:element name="Transforms" type="tns:TransformsType"/>
+      <xs:element name="X509Data" type="tns:X509DataType"/>
+      <xs:complexType mixed="true" name="ObjectType">
+        <xs:sequence>
+          <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="lax"/>
+        </xs:sequence>
+        <xs:attribute name="Id" type="xs:ID"/>
+        <xs:attribute name="MimeType" type="xs:string"/>
+        <xs:attribute name="Encoding" type="xs:anyURI"/>
+      </xs:complexType>
+      <xs:complexType name="ReferenceType">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Transforms" type="tns:TransformsType"/>
+          <xs:element name="DigestMethod" type="tns:DigestMethodType"/>
+          <xs:element name="DigestValue" type="xs:base64Binary"/>
+        </xs:sequence>
+        <xs:attribute name="Id" type="xs:ID"/>
+        <xs:attribute name="URI" type="xs:anyURI"/>
+        <xs:attribute name="Type" type="xs:anyURI"/>
+      </xs:complexType>
+      <xs:complexType name="TransformsType">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" name="Transform" type="tns:TransformType"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType mixed="true" name="TransformType">
+        <xs:sequence>
+          <xs:choice maxOccurs="unbounded" minOccurs="0">
+            <xs:element name="XPath" type="xs:string"/>
+            <xs:any namespace="##other" processContents="lax"/>
+          </xs:choice>
+        </xs:sequence>
+        <xs:attribute name="Algorithm" type="xs:anyURI" use="required"/>
+      </xs:complexType>
+      <xs:complexType mixed="true" name="DigestMethodType">
+        <xs:sequence>
+          <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="lax"/>
+        </xs:sequence>
+        <xs:attribute name="Algorithm" type="xs:anyURI" use="required"/>
+      </xs:complexType>
+      <xs:complexType name="SignatureType">
+        <xs:sequence>
+          <xs:element name="SignedInfo" type="tns:SignedInfoType"/>
+          <xs:element name="SignatureValue" type="tns:SignatureValueType"/>
+          <xs:element minOccurs="0" name="KeyInfo" type="tns:KeyInfoType"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="Object" type="tns:ObjectType"/>
+        </xs:sequence>
+        <xs:attribute name="Id" type="xs:ID"/>
+      </xs:complexType>
+      <xs:complexType name="SignedInfoType">
+        <xs:sequence>
+          <xs:element name="CanonicalizationMethod" type="tns:CanonicalizationMethodType"/>
+          <xs:element name="SignatureMethod" type="tns:SignatureMethodType"/>
+          <xs:element maxOccurs="unbounded" name="Reference" type="tns:ReferenceType"/>
+        </xs:sequence>
+        <xs:attribute name="Id" type="xs:ID"/>
+      </xs:complexType>
+      <xs:complexType mixed="true" name="CanonicalizationMethodType">
+        <xs:sequence>
+          <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="lax"/>
+        </xs:sequence>
+        <xs:attribute name="Algorithm" type="xs:anyURI" use="required"/>
+      </xs:complexType>
+      <xs:complexType mixed="true" name="SignatureMethodType">
+        <xs:sequence>
+          <xs:choice maxOccurs="unbounded" minOccurs="0">
+            <xs:element name="HMACOutputLength" type="xs:integer"/>
+            <xs:any namespace="##other" processContents="lax"/>
+          </xs:choice>
+        </xs:sequence>
+        <xs:attribute name="Algorithm" type="xs:anyURI" use="required"/>
+      </xs:complexType>
+      <xs:complexType name="SignatureValueType">
+        <xs:simpleContent>
+          <xs:extension base="xs:base64Binary">
+            <xs:attribute name="Id" type="xs:ID"/>
+          </xs:extension>
+        </xs:simpleContent>
+      </xs:complexType>
+      <xs:complexType mixed="true" name="KeyInfoType">
+        <xs:sequence>
+          <xs:choice maxOccurs="unbounded" minOccurs="0">
+            <xs:element ref="tns:MgmtData"/>
+            <xs:element ref="tns:KeyValue"/>
+            <xs:element ref="tns:SPKIData"/>
+            <xs:element ref="tns:X509Data"/>
+            <xs:element ref="tns:RetrievalMethod"/>
+            <xs:element ref="tns:PGPData"/>
+            <xs:element ref="tns:KeyName"/>
+            <xs:any namespace="##other" processContents="lax"/>
+          </xs:choice>
+        </xs:sequence>
+        <xs:attribute name="Id" type="xs:ID"/>
+      </xs:complexType>
+      <xs:complexType name="RetrievalMethodType">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Transforms" type="tns:TransformsType"/>
+        </xs:sequence>
+        <xs:attribute name="URI" type="xs:anyURI"/>
+        <xs:attribute name="Type" type="xs:anyURI"/>
+      </xs:complexType>
+      <xs:complexType name="RSAKeyValueType">
+        <xs:sequence>
+          <xs:element name="Modulus" type="xs:base64Binary"/>
+          <xs:element name="Exponent" type="xs:base64Binary"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="X509DataType">
+        <xs:sequence>
+          <xs:choice maxOccurs="unbounded" minOccurs="0">
+            <xs:element name="X509SKI" type="xs:base64Binary"/>
+            <xs:element name="X509Certificate" type="xs:base64Binary"/>
+            <xs:element name="X509SubjectName" type="xs:string"/>
+            <xs:element name="X509CRL" type="xs:base64Binary"/>
+            <xs:element name="X509IssuerSerial" type="tns:X509IssuerSerialType"/>
+            <xs:any namespace="##other" processContents="lax"/>
+          </xs:choice>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ManifestType">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" name="Reference" type="tns:ReferenceType"/>
+        </xs:sequence>
+        <xs:attribute name="Id" type="xs:ID"/>
+      </xs:complexType>
+      <xs:complexType name="DSAKeyValueType">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="P" type="xs:base64Binary"/>
+          <xs:element minOccurs="0" name="Q" type="xs:base64Binary"/>
+          <xs:element minOccurs="0" name="G" type="xs:base64Binary"/>
+          <xs:element name="Y" type="xs:base64Binary"/>
+          <xs:element minOccurs="0" name="J" type="xs:base64Binary"/>
+          <xs:element minOccurs="0" name="Seed" type="xs:base64Binary"/>
+          <xs:element minOccurs="0" name="PgenCounter" type="xs:base64Binary"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="X509IssuerSerialType">
+        <xs:sequence>
+          <xs:element name="X509IssuerName" type="xs:string"/>
+          <xs:element name="X509SerialNumber" type="xs:integer"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="SPKIDataType">
+        <xs:sequence>
+          <xs:choice maxOccurs="unbounded" minOccurs="0">
+            <xs:element name="SPKISexp" type="xs:base64Binary"/>
+            <xs:any namespace="##other" processContents="lax"/>
+          </xs:choice>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="PGPDataType">
+        <xs:sequence>
+          <xs:choice maxOccurs="unbounded" minOccurs="0">
+            <xs:element name="PGPKeyPacket" type="xs:base64Binary"/>
+            <xs:element name="PGPKeyID" type="xs:base64Binary"/>
+            <xs:any namespace="##other" processContents="lax"/>
+          </xs:choice>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType mixed="true" name="KeyValueType">
+        <xs:sequence>
+          <xs:choice maxOccurs="unbounded" minOccurs="0">
+            <xs:element ref="tns:DSAKeyValue"/>
+            <xs:element ref="tns:RSAKeyValue"/>
+            <xs:any namespace="##other" processContents="lax"/>
+          </xs:choice>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="SignaturePropertiesType">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" name="SignatureProperty" type="tns:SignaturePropertyType"/>
+        </xs:sequence>
+        <xs:attribute name="Id" type="xs:ID"/>
+      </xs:complexType>
+      <xs:complexType mixed="true" name="SignaturePropertyType">
+        <xs:sequence>
+          <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="lax"/>
+        </xs:sequence>
+        <xs:attribute name="Target" type="xs:anyURI" use="required"/>
+        <xs:attribute name="Id" type="xs:ID"/>
+      </xs:complexType>
+    </xs:schema>
+    <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:ns1="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:tns="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:import namespace="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd"/>
+      <xs:element name="All" type="tns:OperatorContentType"/>
+      <xs:element name="AppliesTo">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="lax"/>
+          </xs:sequence>
+          <xs:anyAttribute namespace="##other" processContents="skip"/>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ExactlyOne" type="tns:OperatorContentType"/>
+      <xs:element name="Policy">
+        <xs:complexType>
+          <xs:complexContent>
+            <xs:extension base="tns:OperatorContentType">
+              <xs:sequence/>
+              <xs:attribute name="Name" type="xs:anyURI"/>
+              <xs:attribute ref="ns1:Id"/>
+              <xs:anyAttribute namespace="##other" processContents="skip"/>
+            </xs:extension>
+          </xs:complexContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="PolicyAttachment">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element ref="tns:AppliesTo"/>
+            <xs:choice maxOccurs="unbounded" minOccurs="0">
+              <xs:element ref="tns:Policy"/>
+              <xs:element ref="tns:PolicyReference"/>
+            </xs:choice>
+            <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="lax"/>
+          </xs:sequence>
+          <xs:anyAttribute namespace="##other" processContents="skip"/>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="PolicyReference">
+        <xs:complexType>
+          <xs:sequence/>
+          <xs:attribute name="URI" type="xs:anyURI" use="required"/>
+          <xs:attribute name="Digest" type="xs:base64Binary"/>
+          <xs:attribute name="DigestAlgorithm" type="xs:anyURI"/>
+          <xs:anyAttribute namespace="##other" processContents="skip"/>
+        </xs:complexType>
+      </xs:element>
+      <xs:complexType name="OperatorContentType">
+        <xs:sequence>
+          <xs:choice maxOccurs="unbounded" minOccurs="0">
+            <xs:element ref="tns:Policy"/>
+            <xs:element ref="tns:ExactlyOne"/>
+            <xs:element ref="tns:All"/>
+            <xs:element ref="tns:PolicyReference"/>
+            <xs:any namespace="##other" processContents="lax"/>
+          </xs:choice>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+    <xs:schema elementFormDefault="qualified" targetNamespace="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" version="1.0" xmlns:tns="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="Created" type="tns:AttributedDateTime"/>
+      <xs:element name="Expires" type="tns:AttributedDateTime"/>
+      <xs:element name="Timestamp" type="tns:TimestampType"/>
+      <xs:complexType name="AttributedDateTime">
+        <xs:simpleContent>
+          <xs:extension base="xs:string">
+            <xs:attribute ref="tns:Id"/>
+          </xs:extension>
+        </xs:simpleContent>
+      </xs:complexType>
+      <xs:complexType name="AttributedURI">
+        <xs:simpleContent>
+          <xs:extension base="xs:string">
+            <xs:attribute ref="tns:Id"/>
+          </xs:extension>
+        </xs:simpleContent>
+      </xs:complexType>
+      <xs:complexType name="TimestampType">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Created" type="tns:AttributedDateTime"/>
+          <xs:element minOccurs="0" name="Expires" type="tns:AttributedDateTime"/>
+          <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="lax"/>
+        </xs:sequence>
+        <xs:attribute ref="tns:Id"/>
+        <xs:anyAttribute namespace="##other" processContents="skip"/>
+      </xs:complexType>
+      <xs:attribute name="Id" type="xs:ID"/>
+    </xs:schema>
+    <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:ns1="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:tns="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:import namespace="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd"/>
+      <xs:element name="BinarySecurityToken" type="tns:BinarySecurityTokenType"/>
+      <xs:element name="Embedded" type="tns:EmbeddedType"/>
+      <xs:element name="KeyIdentifier" type="tns:KeyIdentifierType"/>
+      <xs:element name="Nonce" type="tns:EncodedString"/>
+      <xs:element name="Password" type="tns:PasswordString"/>
+      <xs:element name="Reference" type="tns:ReferenceType"/>
+      <xs:element name="Security" type="tns:SecurityHeaderType"/>
+      <xs:element name="SecurityTokenReference" type="tns:SecurityTokenReferenceType"/>
+      <xs:element name="TransformationParameters" type="tns:TransformationParametersType"/>
+      <xs:element name="UsernameToken" type="tns:UsernameTokenType"/>
+      <xs:complexType name="SecurityTokenReferenceType">
+        <xs:sequence>
+          <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="lax"/>
+        </xs:sequence>
+        <xs:attribute ref="ns1:Id"/>
+        <xs:attribute ref="tns:Usage"/>
+        <xs:anyAttribute namespace="##other" processContents="skip"/>
+      </xs:complexType>
+      <xs:complexType name="TransformationParametersType">
+        <xs:sequence>
+          <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="lax"/>
+        </xs:sequence>
+        <xs:anyAttribute namespace="##other" processContents="skip"/>
+      </xs:complexType>
+      <xs:complexType name="UsernameTokenType">
+        <xs:sequence>
+          <xs:element name="Username" type="tns:AttributedString"/>
+          <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="lax"/>
+        </xs:sequence>
+        <xs:attribute ref="ns1:Id"/>
+        <xs:anyAttribute namespace="##other" processContents="skip"/>
+      </xs:complexType>
+      <xs:complexType name="AttributedString">
+        <xs:simpleContent>
+          <xs:extension base="xs:string">
+            <xs:attribute ref="ns1:Id"/>
+          </xs:extension>
+        </xs:simpleContent>
+      </xs:complexType>
+      <xs:complexType name="EncodedString">
+        <xs:simpleContent>
+          <xs:extension base="tns:AttributedString">
+            <xs:attribute name="EncodingType" type="xs:anyURI"/>
+            <xs:anyAttribute namespace="##other" processContents="skip"/>
+          </xs:extension>
+        </xs:simpleContent>
+      </xs:complexType>
+      <xs:complexType name="BinarySecurityTokenType">
+        <xs:simpleContent>
+          <xs:extension base="tns:EncodedString">
+            <xs:attribute name="ValueType" type="xs:anyURI"/>
+            <xs:anyAttribute namespace="##other" processContents="skip"/>
+          </xs:extension>
+        </xs:simpleContent>
+      </xs:complexType>
+      <xs:complexType name="KeyIdentifierType">
+        <xs:simpleContent>
+          <xs:extension base="tns:EncodedString">
+            <xs:attribute name="ValueType" type="xs:anyURI"/>
+            <xs:anyAttribute namespace="##other" processContents="skip"/>
+          </xs:extension>
+        </xs:simpleContent>
+      </xs:complexType>
+      <xs:complexType name="PasswordString">
+        <xs:simpleContent>
+          <xs:extension base="tns:AttributedString">
+            <xs:attribute name="Type" type="xs:anyURI"/>
+            <xs:anyAttribute namespace="##other" processContents="skip"/>
+          </xs:extension>
+        </xs:simpleContent>
+      </xs:complexType>
+      <xs:complexType name="EmbeddedType">
+        <xs:sequence>
+          <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="lax"/>
+        </xs:sequence>
+        <xs:attribute name="ValueType" type="xs:anyURI"/>
+        <xs:anyAttribute namespace="##other" processContents="skip"/>
+      </xs:complexType>
+      <xs:complexType name="ReferenceType">
+        <xs:sequence/>
+        <xs:attribute name="URI" type="xs:anyURI"/>
+        <xs:attribute name="ValueType" type="xs:anyURI"/>
+        <xs:anyAttribute namespace="##other" processContents="skip"/>
+      </xs:complexType>
+      <xs:complexType name="SecurityHeaderType">
+        <xs:sequence>
+          <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="lax"/>
+        </xs:sequence>
+        <xs:anyAttribute namespace="##other" processContents="skip"/>
+      </xs:complexType>
+      <xs:attribute name="Usage">
+        <xs:simpleType>
+          <xs:list itemType="xs:string"/>
+        </xs:simpleType>
+      </xs:attribute>
+    </xs:schema>
+    <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://docs.oasis-open.org/ws-sx/ws-trust/200512/" xmlns:ns1="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:ns2="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:ns3="http://www.w3.org/2005/08/addressing" xmlns:tns="http://docs.oasis-open.org/ws-sx/ws-trust/200512/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:import namespace="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd"/>
+      <xs:import namespace="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd"/>
+      <xs:import namespace="http://www.w3.org/2005/08/addressing" schemaLocation="http://www.w3.org/2006/03/addressing/ws-addr.xsd"/>
+      <xs:element name="AllowPostdating" type="tns:AllowPostdatingType"/>
+      <xs:element name="AuthenticationType" type="xs:string"/>
+      <xs:element name="Authenticator" type="tns:AuthenticatorType"/>
+      <xs:element name="BinaryExchange" type="tns:BinaryExchangeType"/>
+      <xs:element name="BinarySecret" type="tns:BinarySecretType"/>
+      <xs:element name="CancelTarget" type="tns:CancelTargetType"/>
+      <xs:element name="CanonicalizationAlgorithm" type="xs:string"/>
+      <xs:element name="Challenge" type="xs:string"/>
+      <xs:element name="Claims" type="tns:ClaimsType"/>
+      <xs:element name="CombinedHash" type="xs:base64Binary"/>
+      <xs:element name="ComputedKey" type="xs:string"/>
+      <xs:element name="ComputedKeyAlgorithm" type="xs:string"/>
+      <xs:element name="Delegatable" type="xs:boolean"/>
+      <xs:element name="DelegateTo" type="tns:DelegateToType"/>
+      <xs:element name="EncryptWith" type="xs:string"/>
+      <xs:element name="Encryption" type="tns:EncryptionType"/>
+      <xs:element name="EncryptionAlgorithm" type="xs:string"/>
+      <xs:element name="Entropy" type="tns:EntropyType"/>
+      <xs:element name="Forwardable" type="xs:boolean"/>
+      <xs:element name="IssuedTokens" type="tns:RequestSecurityTokenResponseCollectionType"/>
+      <xs:element name="Issuer" type="ns3:EndpointReferenceType"/>
+      <xs:element name="KeyExchangeToken" type="tns:KeyExchangeTokenType"/>
+      <xs:element name="KeySize" type="xs:long"/>
+      <xs:element name="KeyType" type="xs:string"/>
+      <xs:element name="KeyWrapAlgorithm" type="xs:string"/>
+      <xs:element name="Lifetime" type="tns:LifetimeType"/>
+      <xs:element name="OnBehalfOf" type="tns:OnBehalfOfType"/>
+      <xs:element name="Participants" type="tns:ParticipantsType"/>
+      <xs:element name="ProofEncryption" type="tns:ProofEncryptionType"/>
+      <xs:element name="RenewTarget" type="tns:RenewTargetType"/>
+      <xs:element name="Renewing" type="tns:RenewingType"/>
+      <xs:element name="RequestKET" type="tns:RequestKETType"/>
+      <xs:element name="RequestSecurityToken" type="tns:RequestSecurityTokenType"/>
+      <xs:element name="RequestSecurityTokenCollection" type="tns:RequestSecurityTokenCollectionType"/>
+      <xs:element name="RequestSecurityTokenResponse" type="tns:RequestSecurityTokenResponseType"/>
+      <xs:element name="RequestSecurityTokenResponseCollection" type="tns:RequestSecurityTokenResponseCollectionType"/>
+      <xs:element name="RequestType" type="xs:string"/>
+      <xs:element name="RequestedAttachedReference" type="tns:RequestedReferenceType"/>
+      <xs:element name="RequestedProofToken" type="tns:RequestedProofTokenType"/>
+      <xs:element name="RequestedSecurityToken" type="tns:RequestedSecurityTokenType"/>
+      <xs:element name="RequestedTokenCancelled" type="tns:RequestedTokenCancelledType"/>
+      <xs:element name="RequestedUnattachedReference" type="tns:RequestedReferenceType"/>
+      <xs:element name="SignChallenge" type="tns:SignChallengeType"/>
+      <xs:element name="SignChallengeResponse" type="tns:SignChallengeType"/>
+      <xs:element name="SignWith" type="xs:string"/>
+      <xs:element name="SignatureAlgorithm" type="xs:string"/>
+      <xs:element name="Status" type="tns:StatusType"/>
+      <xs:element name="TokenType" type="xs:string"/>
+      <xs:element name="UseKey" type="tns:UseKeyType"/>
+      <xs:element name="ValidateTarget" type="tns:ValidateTargetType"/>
+      <xs:complexType name="RequestSecurityTokenType">
+        <xs:sequence>
+          <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="lax"/>
+        </xs:sequence>
+        <xs:attribute name="Context" type="xs:anyURI"/>
+        <xs:anyAttribute namespace="##other" processContents="skip"/>
+      </xs:complexType>
+      <xs:complexType name="RequestSecurityTokenResponseType">
+        <xs:sequence>
+          <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="lax"/>
+        </xs:sequence>
+        <xs:attribute name="Context" type="xs:anyURI"/>
+        <xs:anyAttribute namespace="##other" processContents="skip"/>
+      </xs:complexType>
+      <xs:complexType name="DelegateToType">
+        <xs:sequence>
+          <xs:any namespace="##other" processContents="lax"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="BinaryExchangeType">
+        <xs:simpleContent>
+          <xs:extension base="xs:string">
+            <xs:attribute name="ValueType" type="xs:anyURI" use="required"/>
+            <xs:attribute name="EncodingType" type="xs:anyURI" use="required"/>
+          </xs:extension>
+        </xs:simpleContent>
+      </xs:complexType>
+      <xs:complexType name="RequestSecurityTokenCollectionType">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" name="RequestSecurityToken" type="tns:RequestSecurityTokenType"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="BinarySecretType">
+        <xs:simpleContent>
+          <xs:extension base="xs:base64Binary">
+            <xs:attribute name="Type" type="xs:string"/>
+          </xs:extension>
+        </xs:simpleContent>
+      </xs:complexType>
+      <xs:complexType name="ClaimsType">
+        <xs:sequence>
+          <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="lax"/>
+        </xs:sequence>
+        <xs:attribute name="Dialect" type="xs:anyURI"/>
+        <xs:anyAttribute namespace="##other" processContents="skip"/>
+      </xs:complexType>
+      <xs:complexType name="RequestedSecurityTokenType">
+        <xs:sequence>
+          <xs:any namespace="##other" processContents="lax"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ParticipantsType">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Primary" type="tns:ParticipantType"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="Participant" type="tns:ParticipantType"/>
+          <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="lax"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ParticipantType">
+        <xs:sequence>
+          <xs:any namespace="##other" processContents="lax"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="RenewingType">
+        <xs:sequence/>
+        <xs:attribute name="Allow" type="xs:boolean"/>
+        <xs:attribute name="OK" type="xs:boolean"/>
+      </xs:complexType>
+      <xs:complexType name="OnBehalfOfType">
+        <xs:sequence>
+          <xs:any namespace="##other" processContents="lax"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ValidateTargetType">
+        <xs:sequence>
+          <xs:any namespace="##other" processContents="lax"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="RequestedTokenCancelledType">
+        <xs:sequence/>
+      </xs:complexType>
+      <xs:complexType name="RequestKETType">
+        <xs:sequence/>
+      </xs:complexType>
+      <xs:complexType name="EntropyType">
+        <xs:sequence>
+          <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="lax"/>
+        </xs:sequence>
+        <xs:anyAttribute namespace="##other" processContents="skip"/>
+      </xs:complexType>
+      <xs:complexType name="CancelTargetType">
+        <xs:sequence>
+          <xs:any namespace="##other" processContents="lax"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="RequestedReferenceType">
+        <xs:sequence>
+          <xs:element ref="ns1:SecurityTokenReference"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="LifetimeType">
+        <xs:sequence>
+          <xs:element minOccurs="0" ref="ns2:Created"/>
+          <xs:element minOccurs="0" ref="ns2:Expires"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="SignChallengeType">
+        <xs:sequence>
+          <xs:element name="Challenge" type="xs:string"/>
+          <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="lax"/>
+        </xs:sequence>
+        <xs:anyAttribute namespace="##other" processContents="skip"/>
+      </xs:complexType>
+      <xs:complexType name="RequestedProofTokenType">
+        <xs:sequence>
+          <xs:any namespace="##other" processContents="lax"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="UseKeyType">
+        <xs:sequence>
+          <xs:any namespace="##other" processContents="lax"/>
+        </xs:sequence>
+        <xs:attribute name="Sig" type="xs:anyURI"/>
+      </xs:complexType>
+      <xs:complexType name="AuthenticatorType">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CombinedHash" type="xs:base64Binary"/>
+          <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="lax"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ProofEncryptionType">
+        <xs:sequence>
+          <xs:any namespace="##other" processContents="lax"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="RenewTargetType">
+        <xs:sequence>
+          <xs:any namespace="##other" processContents="lax"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="KeyExchangeTokenType">
+        <xs:sequence>
+          <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="lax"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="EncryptionType">
+        <xs:sequence>
+          <xs:any namespace="##other" processContents="lax"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="AllowPostdatingType">
+        <xs:sequence/>
+      </xs:complexType>
+      <xs:complexType name="StatusType">
+        <xs:sequence>
+          <xs:element name="Code" type="xs:string"/>
+          <xs:element minOccurs="0" name="Reason" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="RequestSecurityTokenResponseCollectionType">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" name="RequestSecurityTokenResponse" type="tns:RequestSecurityTokenResponseType"/>
+        </xs:sequence>
+        <xs:anyAttribute namespace="##other" processContents="skip"/>
+      </xs:complexType>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="RequestSecurityToken2">
+    <wsdl:part element="ns1:RequestSecurityToken" name="request"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="RequestSecurityToken2Response">
+    <wsdl:part element="ns1:RequestSecurityTokenResponseCollection" name="responseCollection"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="RequestSecurityToken">
+    <wsdl:part element="ns1:RequestSecurityToken" name="request"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="RequestSecurityTokenResponse">
+    <wsdl:part element="ns1:RequestSecurityTokenResponse" name="response"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="SecurityTokenService">
+    <wsdl:operation name="RequestSecurityToken2">
+      <wsdl:input message="ns1:RequestSecurityToken2" name="RequestSecurityToken2"></wsdl:input>
+      <wsdl:output message="ns1:RequestSecurityToken2Response" name="RequestSecurityToken2Response"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RequestSecurityToken">
+      <wsdl:input message="ns1:RequestSecurityToken" name="RequestSecurityToken"></wsdl:input>
+      <wsdl:output message="ns1:RequestSecurityTokenResponse" name="RequestSecurityTokenResponse"></wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part><con:part><con:url>http://www.w3.org/2006/03/addressing/ws-addr.xsd</con:url><con:content><![CDATA[<!--W3C XML Schema defined in the Web Services Addressing 1.0 specification
+    http://www.w3.org/TR/ws-addr-core
+
+   Copyright © 2005 World Wide Web Consortium,
+
+   (Massachusetts Institute of Technology, European Research Consortium for
+   Informatics and Mathematics, Keio University). All Rights Reserved. This
+   work is distributed under the W3C® Software License [1] in the hope that
+   it will be useful, but WITHOUT ANY WARRANTY; without even the implied
+   warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+   [1] http://www.w3.org/Consortium/Legal/2002/copyright-software-20021231
+
+   $Id: ws-addr.xsd,v 1.2 2008/07/23 13:38:16 plehegar Exp $-->
+<xs:schema targetNamespace="http://www.w3.org/2005/08/addressing" blockDefault="#all" elementFormDefault="qualified" finalDefault="" attributeFormDefault="unqualified" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.w3.org/2005/08/addressing">
+  <!--Constructs from the WS-Addressing Core-->
+  <xs:element name="EndpointReference" type="tns:EndpointReferenceType"/>
+  <xs:complexType name="EndpointReferenceType" mixed="false">
+    <xs:sequence>
+      <xs:element name="Address" type="tns:AttributedURIType"/>
+      <xs:element ref="tns:ReferenceParameters" minOccurs="0"/>
+      <xs:element ref="tns:Metadata" minOccurs="0"/>
+      <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+    <xs:anyAttribute namespace="##other" processContents="lax"/>
+  </xs:complexType>
+  <xs:element name="ReferenceParameters" type="tns:ReferenceParametersType"/>
+  <xs:complexType name="ReferenceParametersType" mixed="false">
+    <xs:sequence>
+      <xs:any namespace="##any" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+    <xs:anyAttribute namespace="##other" processContents="lax"/>
+  </xs:complexType>
+  <xs:element name="Metadata" type="tns:MetadataType"/>
+  <xs:complexType name="MetadataType" mixed="false">
+    <xs:sequence>
+      <xs:any namespace="##any" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+    <xs:anyAttribute namespace="##other" processContents="lax"/>
+  </xs:complexType>
+  <xs:element name="MessageID" type="tns:AttributedURIType"/>
+  <xs:element name="RelatesTo" type="tns:RelatesToType"/>
+  <xs:complexType name="RelatesToType" mixed="false">
+    <xs:simpleContent>
+      <xs:extension base="xs:anyURI">
+        <xs:attribute name="RelationshipType" type="tns:RelationshipTypeOpenEnum" use="optional" default="http://www.w3.org/2005/08/addressing/reply"/>
+        <xs:anyAttribute namespace="##other" processContents="lax"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:simpleType name="RelationshipTypeOpenEnum">
+    <xs:union memberTypes="tns:RelationshipType xs:anyURI"/>
+  </xs:simpleType>
+  <xs:simpleType name="RelationshipType">
+    <xs:restriction base="xs:anyURI">
+      <xs:enumeration value="http://www.w3.org/2005/08/addressing/reply"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ReplyTo" type="tns:EndpointReferenceType"/>
+  <xs:element name="From" type="tns:EndpointReferenceType"/>
+  <xs:element name="FaultTo" type="tns:EndpointReferenceType"/>
+  <xs:element name="To" type="tns:AttributedURIType"/>
+  <xs:element name="Action" type="tns:AttributedURIType"/>
+  <xs:complexType name="AttributedURIType" mixed="false">
+    <xs:simpleContent>
+      <xs:extension base="xs:anyURI">
+        <xs:anyAttribute namespace="##other" processContents="lax"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <!--Constructs from the WS-Addressing SOAP binding-->
+  <xs:attribute name="IsReferenceParameter" type="xs:boolean"/>
+  <xs:simpleType name="FaultCodesOpenEnumType">
+    <xs:union memberTypes="tns:FaultCodesType xs:QName"/>
+  </xs:simpleType>
+  <xs:simpleType name="FaultCodesType">
+    <xs:restriction base="xs:QName">
+      <xs:enumeration value="tns:InvalidAddressingHeader"/>
+      <xs:enumeration value="tns:InvalidAddress"/>
+      <xs:enumeration value="tns:InvalidEPR"/>
+      <xs:enumeration value="tns:InvalidCardinality"/>
+      <xs:enumeration value="tns:MissingAddressInEPR"/>
+      <xs:enumeration value="tns:DuplicateMessageID"/>
+      <xs:enumeration value="tns:ActionMismatch"/>
+      <xs:enumeration value="tns:MessageAddressingHeaderRequired"/>
+      <xs:enumeration value="tns:DestinationUnreachable"/>
+      <xs:enumeration value="tns:ActionNotSupported"/>
+      <xs:enumeration value="tns:EndpointUnavailable"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="RetryAfter" type="tns:AttributedUnsignedLongType"/>
+  <xs:complexType name="AttributedUnsignedLongType" mixed="false">
+    <xs:simpleContent>
+      <xs:extension base="xs:unsignedLong">
+        <xs:anyAttribute namespace="##other" processContents="lax"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:element name="ProblemHeaderQName" type="tns:AttributedQNameType"/>
+  <xs:complexType name="AttributedQNameType" mixed="false">
+    <xs:simpleContent>
+      <xs:extension base="xs:QName">
+        <xs:anyAttribute namespace="##other" processContents="lax"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:element name="ProblemIRI" type="tns:AttributedURIType"/>
+  <xs:element name="ProblemAction" type="tns:ProblemActionType"/>
+  <xs:complexType name="ProblemActionType" mixed="false">
+    <xs:sequence>
+      <xs:element ref="tns:Action" minOccurs="0"/>
+      <xs:element name="SoapAction" minOccurs="0" type="xs:anyURI"/>
+    </xs:sequence>
+    <xs:anyAttribute namespace="##other" processContents="lax"/>
+  </xs:complexType>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost:8080/authentication/mockSecurityTokenServiceSoapBinding</con:endpoint><con:endpoint>http://localhost:8088/mockSecurityTokenServiceSoapBinding</con:endpoint><con:endpoint>http://localhost:8088/mockSecurityTokenServiceSoapBinding</con:endpoint><con:endpoint>http://localhost:8090/mockSecurityTokenServiceSoapBinding</con:endpoint><con:endpoint>requestsecuritytoken</con:endpoint></con:endpoints><con:operation id="baacaa2b-bc97-4839-b989-8abad2bc53f0" isOneWay="false" action="" name="RequestSecurityToken" bindingOperationName="RequestSecurityToken" type="Request-Response" outputName="RequestSecurityTokenResponse" inputName="RequestSecurityToken" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="0e91869c-ed11-470a-9e03-e24bb48b8012" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8090/mockSecurityTokenServiceSoapBinding</con:endpoint><con:request><![CDATA[<s:Envelope xmlns:s="http://www.w3.org/2003/05/soap-envelope" xmlns:a="http://www.w3.org/2005/08/addressing" xmlns:u="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+   <s:Header>
+      <a:Action s:mustUnderstand="1">http://docs.oasis-open.org/ws-sx/ws-trust/200512/RST/Issue</a:Action>
+      <a:To s:mustUnderstand="1">https://fedsvcs.linkgtm.gpn.gov.uk/adfs/services/trust/13/usernamemixed</a:To>
+      <o:Security s:mustUnderstand="1" xmlns:o="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd">
+         <o:UsernameToken u:Id="uuid-6a13a244-dac6-42c1-84c5-cbb345b0c4c4-1">
+            <o:Username>mapsuser</o:Username>
+            <o:Password>testpassword</o:Password>
+         </o:UsernameToken>
+      </o:Security>
+   </s:Header>
+   <s:Body>
+      <trust:RequestSecurityToken xmlns:trust="http://docs.oasis-open.org/ws-sx/ws-trust/200512/">
+         <wsp:AppliesTo xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy">
+            <a:EndpointReference>
+               <a:Address>https://mapsserviceproxy.gpn.gov.uk</a:Address>
+            </a:EndpointReference>
+         </wsp:AppliesTo>
+         <trust:KeyType>http://docs.oasis-open.org/ws-sx/ws-trust/200512/Bearer</trust:KeyType>
+         <trust:RequestType>http://docs.oasis-open.org/ws-sx/ws-trust/200512/Issue</trust:RequestType>
+         <trust:TokenType>http://docs.oasis-open.org/wss/oasis-wss-saml-token-profile-1.1#SAMLV2.0</trust:TokenType>
+      </trust:RequestSecurityToken>
+   </s:Body>
+</s:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://docs.oasis-open.org/ws-sx/ws-trust/200512/SecurityTokenService/RequestSecurityToken"/><con:wsrmConfig version="1.2"/></con:call><con:call id="a477e0a7-9fa1-4d11-9c90-9e9d8cefbdf1" name="Request 2"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8090/mockSecurityTokenServiceSoapBinding</con:endpoint><con:request><![CDATA[<s:Envelope xmlns:s="http://www.w3.org/2003/05/soap-envelope" xmlns:a="http://www.w3.org/2005/08/addressing" xmlns:u="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+   <s:Header>
+      <a:Action s:mustUnderstand="1">http://docs.oasis-open.org/ws-sx/ws-trust/200512/RST/Issue</a:Action>
+      <a:To s:mustUnderstand="1">https://fedsvcs.linkgtm.gpn.gov.uk/adfs/services/trust/13/usernamemixed</a:To>
+      <o:Security s:mustUnderstand="1" xmlns:o="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd">
+         <o:UsernameToken u:Id="uuid-6a13a244-dac6-42c1-84c5-cbb345b0c4c4-1">
+            <o:Username>mapsuser1</o:Username>
+            <o:Password>mapspassword</o:Password>
+         </o:UsernameToken>
+      </o:Security>
+   </s:Header>
+   <s:Body>
+      <trust:RequestSecurityToken  xmlns:trust="http://docs.oasis-open.org/ws-sx/ws-trust/200512/">
+         <wsp:AppliesTo xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy">
+            <a:EndpointReference>
+               <a:Address>https://mapsserviceproxy.gpn.gov.uk</a:Address>
+            </a:EndpointReference>
+         </wsp:AppliesTo>
+         <trust:KeyType>http://docs.oasis-open.org/ws-sx/ws-trust/200512/Bearer</trust:KeyType>
+         <trust:RequestType>http://docs.oasis-open.org/ws-sx/ws-trust/200512/Issue</trust:RequestType>
+         <trust:TokenType>http://docs.oasis-open.org/wss/oasis-wss-saml-token-profile-1.1#SAMLV2.0</trust:TokenType>
+      </trust:RequestSecurityToken>
+   </s:Body>
+</s:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://docs.oasis-open.org/ws-sx/ws-trust/200512/SecurityTokenService/RequestSecurityToken"/><con:wsrmConfig version="1.2"/></con:call><con:call id="f963089b-c5bf-4519-96c3-f040f207ebf9" name="Request 3"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8088/mockSecurityTokenServiceSoapBinding</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:ns="http://docs.oasis-open.org/ws-sx/ws-trust/200512/">
+   <soap:Header/>
+   <soap:Body>
+      <ns:RequestSecurityToken Context="?">
+         <!--You may enter ANY elements at this point-->
+      </ns:RequestSecurityToken>
+   </soap:Body>
+</soap:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://docs.oasis-open.org/ws-sx/ws-trust/200512/SecurityTokenService/RequestSecurityToken"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="443d6f64-b049-4cfe-9373-1f2551b5740c" isOneWay="false" action="" name="RequestSecurityToken2" bindingOperationName="RequestSecurityToken2" type="Request-Response" outputName="RequestSecurityToken2Response" inputName="RequestSecurityToken2" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="35d746c0-6165-4d99-b998-daf148b9d8ea" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8088/mockSecurityTokenServiceSoapBinding</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:ns="http://docs.oasis-open.org/ws-sx/ws-trust/200512/">
+   <soap:Header/>
+   <soap:Body>
+      <ns:RequestSecurityToken Context="?">
+         <!--You may enter ANY elements at this point-->
+      </ns:RequestSecurityToken>
+   </soap:Body>
+</soap:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://docs.oasis-open.org/ws-sx/ws-trust/200512/SecurityTokenService/RequestSecurityToken2"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:mockService id="8b6aaa1a-2d55-4619-8638-16a98bcae8fd" port="8090" path="/mockSecurityTokenServiceSoapBinding" host="localhost" name="SecurityTokenServiceSoapBinding MockService" bindToHostOnly="false" docroot=""><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.mock.WsdlMockService@require-soap-action">false</con:setting></con:settings><con:properties/><con:mockOperation name="RequestSecurityToken" id="8ef7156c-d8e4-48ae-971a-9f1bef4d5263" interface="SecurityTokenServiceSoapBinding" operation="RequestSecurityToken"><con:settings/><con:defaultResponse>Response 1</con:defaultResponse><con:dispatchStyle>SCRIPT</con:dispatchStyle><con:dispatchPath>def groovyUtils = new com.eviware.soapui.support.GroovyUtils( context )
+log.info(context.testCase);
+def holder = groovyUtils.getXmlHolder( mockRequest.requestContent );
+holder.namespaces["o"] = "http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd";
+if(holder.getNodeValue("//o:Username") == "mapsuser"){
+	return "Response 1";
+}else{
+	return "Response Fault";
+}
+</con:dispatchPath><con:response name="Response 1" id="0119081c-4c32-4dac-a8a2-166e050a57fa" httpResponseStatus="200" encoding="UTF-8"><con:settings/><con:responseContent><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope">
+   <soap:Body>
+      <RequestSecurityTokenResponse xmlns="http://docs.oasis-open.org/ws-sx/ws-trust/200512/" xmlns:ns2="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:ns3="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:ns4="http://www.w3.org/2005/08/addressing" xmlns:ns5="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:ns6="http://www.w3.org/2000/09/xmldsig#">
+         <Lifetime>
+            <ns2:Created>2015-12-23T12:32:40.283Z</ns2:Created>
+            <ns2:Expires>2016-03-11T14:10:40.283Z</ns2:Expires>
+         </Lifetime>
+         <wsp:AppliesTo xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:trust="http://docs.oasis-open.org/ws-sx/ws-trust/200512/">
+            <wsa:EndpointReference xmlns:wsa="http://www.w3.org/2005/08/addressing">
+               <wsa:Address>https://mapsserviceproxy.gpn.gov.uk</wsa:Address>
+            </wsa:EndpointReference>
+         </wsp:AppliesTo>
+         <RequestedSecurityToken>
+            <Assertion:Assertion ID="_ee590095-5c37-4e07-8aff-df9e1567848e" IssueInstant="2015-09-23T12:32:43.408Z" Version="2.0" xmlns:Assertion="urn:oasis:names:tc:SAML:2.0:assertion" xmlns="urn:oasis:names:tc:SAML:2.0:assertion" xmlns:trust="http://docs.oasis-open.org/ws-sx/ws-trust/200512/">
+               <Issuer>http://fedsvcs.linkgtm.gpn.gov.uk/adfs/services/trust</Issuer>
+               <ds:Signature xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+                  <ds:SignedInfo>
+                     <ds:CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/>
+                     <ds:SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/>
+                     <ds:Reference URI="#_ee590095-5c37-4e07-8aff-df9e1567848e">
+                        <ds:Transforms>
+                           <ds:Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/>
+                           <ds:Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/>
+                        </ds:Transforms>
+                        <ds:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/>
+                        <ds:DigestValue>1xlB0q9+SRMm0xRwQhrx0DCLDzo=</ds:DigestValue>
+                     </ds:Reference>
+                  </ds:SignedInfo>
+                  <ds:SignatureValue>HhMuWN0kplA3vg+7FwimUsPJQugLyTXqFoqp7ZzjtLBFeu7ZC5KdwCdmhco3E5Pd2GUNf8KeYU6BVdccYLR/IuzeHB8bvSBAkFYoZZHSAfGpVp6PRYH7Gk5JVP+MNtPiVQ+J5MSXwxn2i4/zqG2ynxfWZlZZSF2Tx2Ir+2/CRdVK8quW3/AxahEIGj35asNEg6eCQOwnSYYGYs1sL+js8AghL99BmKA2vt65ruzrGAjEPTnu6uPK/yNNw9lMWFOWz5ssT7leV0outLVRFPLFGhFqNOZDKWY/pL7kTWl2YE1h5JtkTHgWeraHJYEt4pYR4gD16ppmjWfFEVDwUvtjUA==</ds:SignatureValue>
+                  <ds:KeyInfo xmlns="http://www.w3.org/2000/09/xmldsig#">
+                     <X509Data>
+                        <X509Certificate>MIIFNjCCBB6gAwIBAgIKYYHSjgABAAAAJTANBgkqhkiG9w0BAQUFADA9MRUwEwYKCZImiZPyLGQBGRYFbG9jYWwxEjAQBgoJkiaJk/IsZAEZFgJkZzEQMA4GA1UEAxMHUm9vdENBMTAeFw0xNTA1MjIxMjU4MTRaFw0xNzA1MjIxMzA4MTRaMDExLzAtBgNVBAMTJmZlZHN2Y3N0b2tlbnNpZ25pbmcubGlua2d0bS5ncG4uZ292LnVrMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEArFlDGA7CfOvFz0zyxcw4LRk9VY7JhQh0BYSvxKKPWvlw4MDs4E9hiliq+Cv3xhzUZpT7BrFM87APZAax/ZCBnNo5laUoWjRdNDQqjyLZZN+GVdVe5bIAlFqtN/RvFvCLId76cV10Wur+tsQlFXMIOWMrnq8SOR3a8tm8x2rb2qJhrH4AxyK+boMjgZj9ALQdwKyp54m5kmSxYEpdGz1HBYaF841qSQZhSx3D9lMUHuIAEQbRzXpWEyuGaTd/n4bXOVYq02BMbnczAskLKDSaDUeNe8NaoJByinTIy2+WPUwJEPVy+NJfVdTiWx6LNWDPQw6/hcL1uAckr7apkW0EUQIDAQABo4ICQjCCAj4wPAYJKwYBBAGCNxUHBC8wLQYlKwYBBAGCNxUIhcj4E4PrjHqH0Zs3hrzvZ4HLWVOFr9keg6KLfgIBZAIBBDATBgNVHSUEDDAKBggrBgEFBQcDATAOBgNVHQ8BAf8EBAMCBaAwGwYJKwYBBAGCNxUKBA4wDDAKBggrBgEFBQcDATAdBgNVHQ4EFgQUOKaWtAQkVdm2ymb1sqxvX1pE50cwHwYDVR0jBBgwFoAUgRD9bagTgeKRebcsJYG04R8oTqQwgcIGA1UdHwSBujCBtzCBtKCBsaCBroaBq2xkYXA6Ly8vQ049Um9vdENBMSxDTj1UZXN0REMxLENOPUNEUCxDTj1QdWJsaWMlMjBLZXklMjBTZXJ2aWNlcyxDTj1TZXJ2aWNlcyxDTj1Db25maWd1cmF0aW9uLERDPWRnLERDPWxvY2FsP2NlcnRpZmljYXRlUmV2b2NhdGlvbkxpc3Q/YmFzZT9vYmplY3RDbGFzcz1jUkxEaXN0cmlidXRpb25Qb2ludDCBtgYIKwYBBQUHAQEEgakwgaYwgaMGCCsGAQUFBzAChoGWbGRhcDovLy9DTj1Sb290Q0ExLENOPUFJQSxDTj1QdWJsaWMlMjBLZXklMjBTZXJ2aWNlcyxDTj1TZXJ2aWNlcyxDTj1Db25maWd1cmF0aW9uLERDPWRnLERDPWxvY2FsP2NBQ2VydGlmaWNhdGU/YmFzZT9vYmplY3RDbGFzcz1jZXJ0aWZpY2F0aW9uQXV0aG9yaXR5MA0GCSqGSIb3DQEBBQUAA4IBAQBRl48nc1k1GGhP/TaRoyPhFQwKtOX3k339WK5Wf/fpVspowve5kAD6+2c2pYV755EVI5e0FUYWGH5IbPwH0EyixVmW4+Hnz75QZMUHypshjBr91zbVvEwqIEWpWIBc+mbsKlG+e21LZLpE/oEHklgIao0693Gu3ycoF1AbGGsg2JqjXV4rpchHZZU9qvEZfR+sJ3Dr+fQ1MEDaZn7tgP8INPEyWejIW56kT5CisnxoadnOpGwgNoSFXArMDLg1vIyUrDiOWfRa5BxK4TCHMAzId9Lt5UutETOa3mD7Z8U9ExYH8DVxLELEERQYQHkgcxtSV6HN9A2LmT64HGDPOxlK</X509Certificate>
+                     </X509Data>
+                  </ds:KeyInfo>
+               </ds:Signature>
+               <Subject>
+                  <NameID>administrator@dg.local</NameID>
+                  <SubjectConfirmation Method="urn:oasis:names:tc:SAML:2.0:cm:bearer">
+                     <SubjectConfirmationData NotOnOrAfter="2015-09-23T12:37:43.424Z"/>
+                  </SubjectConfirmation>
+               </Subject>
+               <Conditions NotBefore="2015-09-23T12:32:40.283Z" NotOnOrAfter="2015-09-23T13:32:40.283Z">
+                  <AudienceRestriction>
+                     <Audience>https://mapsserviceproxy.gpn.gov.uk</Audience>
+                  </AudienceRestriction>
+               </Conditions>
+               <AttributeStatement>
+                  <Attribute Name="http://dwp.gov.uk/dwp_access">
+                     <AttributeValue>MAPS</AttributeValue>
+                  </Attribute>
+                  <Attribute Name="http://dwp.gov.uk/maps_role">
+                     <AttributeValue>Allocate</AttributeValue>
+                  </Attribute>
+                  <Attribute Name="http://dwp.gov.uk/maps_lot">
+                     <AttributeValue>Lot 1</AttributeValue>
+                     <AttributeValue>Lot 2</AttributeValue>
+                  </Attribute>
+                  <Attribute Name="http://dwp.gov.uk/title">
+                     <AttributeValue>Mr</AttributeValue>
+                  </Attribute>
+                  <Attribute Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname">
+                     <AttributeValue>Ad</AttributeValue>
+                  </Attribute>
+                  <Attribute Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname">
+                     <AttributeValue>Min</AttributeValue>
+                  </Attribute>
+                  <Attribute Name="http://dwp.gov.uk/pwdexpdate">
+                     <AttributeValue>28/12/2015</AttributeValue>
+                  </Attribute>
+               </AttributeStatement>
+               <AuthnStatement AuthnInstant="2015-09-23T12:32:38.752Z">
+                  <AuthnContext>
+                     <AuthnContextClassRef>urn:oasis:names:tc:SAML:2.0:ac:classes:Password</AuthnContextClassRef>
+                  </AuthnContext>
+               </AuthnStatement>
+            </Assertion:Assertion>
+         </RequestedSecurityToken>
+         <RequestedAttachedReference>
+            <ns3:SecurityTokenReference b:TokenType="http://docs.oasis-open.org/wss/oasis-wss-saml-token-profile-1.1#SAMLV2.0" xmlns:b="http://docs.oasis-open.org/wss/oasis-wss-wssecurity-secext-1.1.xsd">
+               <ns3:KeyIdentifier ValueType="http://docs.oasis-open.org/wss/oasis-wss-saml-token-profile-1.1#SAMLID">_ee590095-5c37-4e07-8aff-df9e1567848e</ns3:KeyIdentifier>
+            </ns3:SecurityTokenReference>
+         </RequestedAttachedReference>
+         <RequestedUnattachedReference>
+            <ns3:SecurityTokenReference b:TokenType="http://docs.oasis-open.org/wss/oasis-wss-saml-token-profile-1.1#SAMLV2.0" xmlns:b="http://docs.oasis-open.org/wss/oasis-wss-wssecurity-secext-1.1.xsd">
+               <ns3:KeyIdentifier ValueType="http://docs.oasis-open.org/wss/oasis-wss-saml-token-profile-1.1#SAMLID">_ee590095-5c37-4e07-8aff-df9e1567848e</ns3:KeyIdentifier>
+            </ns3:SecurityTokenReference>
+         </RequestedUnattachedReference>
+         <TokenType>http://docs.oasis-open.org/wss/oasis-wss-saml-token-profile-1.1#SAMLV2.0</TokenType>
+         <RequestType>http://docs.oasis-open.org/ws-sx/ws-trust/200512/Issue</RequestType>
+         <KeyType>http://docs.oasis-open.org/ws-sx/ws-trust/200512/Bearer</KeyType>
+      </RequestSecurityTokenResponse>
+   </soap:Body>
+</soap:Envelope>]]></con:responseContent><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://docs.oasis-open.org/ws-sx/ws-trust/200512/SecurityTokenService/RequestSecurityTokenResponse"/></con:response><con:response name="Response Fault" id="0119081c-4c32-4dac-a8a2-166e050a57fa" httpResponseStatus="200" encoding="UTF-8"><con:settings/><con:responseContent><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope">
+   <soap:Body>
+      <RequestSecurityTokenResponse xmlns="http://docs.oasis-open.org/ws-sx/ws-trust/200512/" xmlns:ns2="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:ns3="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:ns4="http://www.w3.org/2005/08/addressing" xmlns:ns5="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:ns6="http://www.w3.org/2000/09/xmldsig#">
+         <Lifetime>
+            <ns2:Created>2015-12-23T12:32:40.283Z</ns2:Created>
+            <ns2:Expires>2016-03-11T14:10:40.283Z</ns2:Expires>
+         </Lifetime>
+         
+      </RequestSecurityTokenResponse>
+   </soap:Body>
+</soap:Envelope>]]></con:responseContent><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://docs.oasis-open.org/ws-sx/ws-trust/200512/SecurityTokenService/RequestSecurityTokenResponse"/></con:response><con:dispatchConfig/></con:mockOperation><con:mockOperation name="RequestSecurityToken2" id="ee43c999-b0b9-403a-9f04-d44e7df5a55c" interface="SecurityTokenServiceSoapBinding" operation="RequestSecurityToken2"><con:settings/><con:defaultResponse>Response 1</con:defaultResponse><con:dispatchStyle>SEQUENCE</con:dispatchStyle><con:response name="Response 1" id="760b7a3a-d842-4a4a-8cee-0a9ebd6a9fe9" httpResponseStatus="200" encoding="UTF-8"><con:settings/><con:responseContent><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:ns="http://docs.oasis-open.org/ws-sx/ws-trust/200512/">
+   <soap:Header/>
+   <soap:Body>
+      <ns:RequestSecurityTokenResponseCollection>
+         <!--1 or more repetitions:-->
+         <ns:RequestSecurityTokenResponse Context="?">
+            <!--You may enter ANY elements at this point-->
+         </ns:RequestSecurityTokenResponse>
+      </ns:RequestSecurityTokenResponseCollection>
+   </soap:Body>
+</soap:Envelope>]]></con:responseContent><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://docs.oasis-open.org/ws-sx/ws-trust/200512/SecurityTokenService/RequestSecurityToken2Response"/></con:response><con:dispatchConfig/></con:mockOperation></con:mockService><con:mockService id="b672ceaa-9060-420c-85c1-f09b956f08f1" port="8088" path="/mockSecurityTokenServiceSoapBinding" host="Shibus-MacBook-Pro.local" name="SecurityTokenServiceSoapBinding MockService"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.mock.WsdlMockService@require-soap-action">false</con:setting></con:settings><con:properties/><con:mockOperation name="RequestSecurityToken" id="fc43219b-c9e6-499b-b282-2b7373058c92" interface="SecurityTokenServiceSoapBinding" operation="RequestSecurityToken"><con:settings/><con:defaultResponse>Response 1</con:defaultResponse><con:dispatchStyle>SEQUENCE</con:dispatchStyle><con:response name="Response 1" id="f09af0cc-1dc6-4a3b-8365-dea1e1a526f4" httpResponseStatus="200" encoding="UTF-8"><con:settings/><con:responseContent><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope">
+   <soap:Body>
+      <RequestSecurityTokenResponse xmlns="http://docs.oasis-open.org/ws-sx/ws-trust/200512/" xmlns:ns2="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:ns3="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:ns4="http://www.w3.org/2005/08/addressing" xmlns:ns5="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:ns6="http://www.w3.org/2000/09/xmldsig#">
+         <Lifetime>
+            <ns2:Created>2015-09-23T12:32:40.283Z</ns2:Created>
+            <ns2:Expires>2015-09-23T13:32:40.283Z</ns2:Expires>
+         </Lifetime>
+         <wsp:AppliesTo xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:trust="http://docs.oasis-open.org/ws-sx/ws-trust/200512/">
+            <wsa:EndpointReference xmlns:wsa="http://www.w3.org/2005/08/addressing">
+               <wsa:Address>https://mapsserviceproxy.gpn.gov.uk</wsa:Address>
+            </wsa:EndpointReference>
+         </wsp:AppliesTo>
+         <RequestedSecurityToken>
+            <Assertion:Assertion ID="_ee590095-5c37-4e07-8aff-df9e1567848e" IssueInstant="2015-09-23T12:32:43.408Z" Version="2.0" xmlns:Assertion="urn:oasis:names:tc:SAML:2.0:assertion" xmlns="urn:oasis:names:tc:SAML:2.0:assertion" xmlns:trust="http://docs.oasis-open.org/ws-sx/ws-trust/200512/">
+               <Issuer>http://fedsvcs.linkgtm.gpn.gov.uk/adfs/services/trust</Issuer>
+               <ds:Signature xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+                  <ds:SignedInfo>
+                     <ds:CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/>
+                     <ds:SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/>
+                     <ds:Reference URI="#_ee590095-5c37-4e07-8aff-df9e1567848e">
+                        <ds:Transforms>
+                           <ds:Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/>
+                           <ds:Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/>
+                        </ds:Transforms>
+                        <ds:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/>
+                        <ds:DigestValue>1xlB0q9+SRMm0xRwQhrx0DCLDzo=</ds:DigestValue>
+                     </ds:Reference>
+                  </ds:SignedInfo>
+                  <ds:SignatureValue>HhMuWN0kplA3vg+7FwimUsPJQugLyTXqFoqp7ZzjtLBFeu7ZC5KdwCdmhco3E5Pd2GUNf8KeYU6BVdccYLR/IuzeHB8bvSBAkFYoZZHSAfGpVp6PRYH7Gk5JVP+MNtPiVQ+J5MSXwxn2i4/zqG2ynxfWZlZZSF2Tx2Ir+2/CRdVK8quW3/AxahEIGj35asNEg6eCQOwnSYYGYs1sL+js8AghL99BmKA2vt65ruzrGAjEPTnu6uPK/yNNw9lMWFOWz5ssT7leV0outLVRFPLFGhFqNOZDKWY/pL7kTWl2YE1h5JtkTHgWeraHJYEt4pYR4gD16ppmjWfFEVDwUvtjUA==</ds:SignatureValue>
+                  <ds:KeyInfo xmlns="http://www.w3.org/2000/09/xmldsig#">
+                     <X509Data>
+                        <X509Certificate>MIIFNjCCBB6gAwIBAgIKYYHSjgABAAAAJTANBgkqhkiG9w0BAQUFADA9MRUwEwYKCZImiZPyLGQBGRYFbG9jYWwxEjAQBgoJkiaJk/IsZAEZFgJkZzEQMA4GA1UEAxMHUm9vdENBMTAeFw0xNTA1MjIxMjU4MTRaFw0xNzA1MjIxMzA4MTRaMDExLzAtBgNVBAMTJmZlZHN2Y3N0b2tlbnNpZ25pbmcubGlua2d0bS5ncG4uZ292LnVrMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEArFlDGA7CfOvFz0zyxcw4LRk9VY7JhQh0BYSvxKKPWvlw4MDs4E9hiliq+Cv3xhzUZpT7BrFM87APZAax/ZCBnNo5laUoWjRdNDQqjyLZZN+GVdVe5bIAlFqtN/RvFvCLId76cV10Wur+tsQlFXMIOWMrnq8SOR3a8tm8x2rb2qJhrH4AxyK+boMjgZj9ALQdwKyp54m5kmSxYEpdGz1HBYaF841qSQZhSx3D9lMUHuIAEQbRzXpWEyuGaTd/n4bXOVYq02BMbnczAskLKDSaDUeNe8NaoJByinTIy2+WPUwJEPVy+NJfVdTiWx6LNWDPQw6/hcL1uAckr7apkW0EUQIDAQABo4ICQjCCAj4wPAYJKwYBBAGCNxUHBC8wLQYlKwYBBAGCNxUIhcj4E4PrjHqH0Zs3hrzvZ4HLWVOFr9keg6KLfgIBZAIBBDATBgNVHSUEDDAKBggrBgEFBQcDATAOBgNVHQ8BAf8EBAMCBaAwGwYJKwYBBAGCNxUKBA4wDDAKBggrBgEFBQcDATAdBgNVHQ4EFgQUOKaWtAQkVdm2ymb1sqxvX1pE50cwHwYDVR0jBBgwFoAUgRD9bagTgeKRebcsJYG04R8oTqQwgcIGA1UdHwSBujCBtzCBtKCBsaCBroaBq2xkYXA6Ly8vQ049Um9vdENBMSxDTj1UZXN0REMxLENOPUNEUCxDTj1QdWJsaWMlMjBLZXklMjBTZXJ2aWNlcyxDTj1TZXJ2aWNlcyxDTj1Db25maWd1cmF0aW9uLERDPWRnLERDPWxvY2FsP2NlcnRpZmljYXRlUmV2b2NhdGlvbkxpc3Q/YmFzZT9vYmplY3RDbGFzcz1jUkxEaXN0cmlidXRpb25Qb2ludDCBtgYIKwYBBQUHAQEEgakwgaYwgaMGCCsGAQUFBzAChoGWbGRhcDovLy9DTj1Sb290Q0ExLENOPUFJQSxDTj1QdWJsaWMlMjBLZXklMjBTZXJ2aWNlcyxDTj1TZXJ2aWNlcyxDTj1Db25maWd1cmF0aW9uLERDPWRnLERDPWxvY2FsP2NBQ2VydGlmaWNhdGU/YmFzZT9vYmplY3RDbGFzcz1jZXJ0aWZpY2F0aW9uQXV0aG9yaXR5MA0GCSqGSIb3DQEBBQUAA4IBAQBRl48nc1k1GGhP/TaRoyPhFQwKtOX3k339WK5Wf/fpVspowve5kAD6+2c2pYV755EVI5e0FUYWGH5IbPwH0EyixVmW4+Hnz75QZMUHypshjBr91zbVvEwqIEWpWIBc+mbsKlG+e21LZLpE/oEHklgIao0693Gu3ycoF1AbGGsg2JqjXV4rpchHZZU9qvEZfR+sJ3Dr+fQ1MEDaZn7tgP8INPEyWejIW56kT5CisnxoadnOpGwgNoSFXArMDLg1vIyUrDiOWfRa5BxK4TCHMAzId9Lt5UutETOa3mD7Z8U9ExYH8DVxLELEERQYQHkgcxtSV6HN9A2LmT64HGDPOxlK</X509Certificate>
+                     </X509Data>
+                  </ds:KeyInfo>
+               </ds:Signature>
+               <Subject>
+                  <NameID>administrator@dg.local</NameID>
+                  <SubjectConfirmation Method="urn:oasis:names:tc:SAML:2.0:cm:bearer">
+                     <SubjectConfirmationData NotOnOrAfter="2015-09-23T12:37:43.424Z"/>
+                  </SubjectConfirmation>
+               </Subject>
+               <Conditions NotBefore="2015-09-23T12:32:40.283Z" NotOnOrAfter="2015-09-23T13:32:40.283Z">
+                  <AudienceRestriction>
+                     <Audience>https://mapsserviceproxy.gpn.gov.uk</Audience>
+                  </AudienceRestriction>
+               </Conditions>
+               <AttributeStatement>
+                  <Attribute Name="http://dwp.gov.uk/dwp_access">
+                     <AttributeValue>MAPS</AttributeValue>
+                  </Attribute>
+                  <Attribute Name="http://dwp.gov.uk/maps_role">
+                     <AttributeValue>Allocate</AttributeValue>
+                  </Attribute>
+                  <Attribute Name="http://dwp.gov.uk/maps_lot">
+                     <AttributeValue>Lot 1</AttributeValue>
+                     <AttributeValue>Lot 2</AttributeValue>
+                  </Attribute>
+                  <Attribute Name="http://dwp.gov.uk/title">
+                     <AttributeValue>Mr</AttributeValue>
+                  </Attribute>
+                  <Attribute Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname">
+                     <AttributeValue>Ad</AttributeValue>
+                  </Attribute>
+                  <Attribute Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname">
+                     <AttributeValue>Min</AttributeValue>
+                  </Attribute>
+                  <Attribute Name="http://dwp.gov.uk/pwdexpdate">
+                     <AttributeValue>21/12/2015</AttributeValue>
+                  </Attribute>
+               </AttributeStatement>
+               <AuthnStatement AuthnInstant="2015-09-23T12:32:38.752Z">
+                  <AuthnContext>
+                     <AuthnContextClassRef>urn:oasis:names:tc:SAML:2.0:ac:classes:Password</AuthnContextClassRef>
+                  </AuthnContext>
+               </AuthnStatement>
+            </Assertion:Assertion>
+         </RequestedSecurityToken>
+         <RequestedAttachedReference>
+            <ns3:SecurityTokenReference b:TokenType="http://docs.oasis-open.org/wss/oasis-wss-saml-token-profile-1.1#SAMLV2.0" xmlns:b="http://docs.oasis-open.org/wss/oasis-wss-wssecurity-secext-1.1.xsd">
+               <ns3:KeyIdentifier ValueType="http://docs.oasis-open.org/wss/oasis-wss-saml-token-profile-1.1#SAMLID">_ee590095-5c37-4e07-8aff-df9e1567848e</ns3:KeyIdentifier>
+            </ns3:SecurityTokenReference>
+         </RequestedAttachedReference>
+         <RequestedUnattachedReference>
+            <ns3:SecurityTokenReference b:TokenType="http://docs.oasis-open.org/wss/oasis-wss-saml-token-profile-1.1#SAMLV2.0" xmlns:b="http://docs.oasis-open.org/wss/oasis-wss-wssecurity-secext-1.1.xsd">
+               <ns3:KeyIdentifier ValueType="http://docs.oasis-open.org/wss/oasis-wss-saml-token-profile-1.1#SAMLID">_ee590095-5c37-4e07-8aff-df9e1567848e</ns3:KeyIdentifier>
+            </ns3:SecurityTokenReference>
+         </RequestedUnattachedReference>
+         <TokenType>http://docs.oasis-open.org/wss/oasis-wss-saml-token-profile-1.1#SAMLV2.0</TokenType>
+         <RequestType>http://docs.oasis-open.org/ws-sx/ws-trust/200512/Issue</RequestType>
+         <KeyType>http://docs.oasis-open.org/ws-sx/ws-trust/200512/Bearer</KeyType>
+      </RequestSecurityTokenResponse>
+   </soap:Body>
+</soap:Envelope>]]></con:responseContent><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://docs.oasis-open.org/ws-sx/ws-trust/200512/SecurityTokenService/RequestSecurityTokenResponse"/></con:response><con:dispatchConfig/></con:mockOperation><con:mockOperation name="RequestSecurityToken2" id="625e8740-f9c2-406f-a498-e98b94c2ec6e" interface="SecurityTokenServiceSoapBinding" operation="RequestSecurityToken2"><con:settings/><con:defaultResponse>Response 1</con:defaultResponse><con:dispatchStyle>SEQUENCE</con:dispatchStyle><con:response name="Response 1" id="8ebd5ed9-de09-4cef-b923-e8b464939d5b" httpResponseStatus="200" encoding="UTF-8"><con:settings/><con:responseContent><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:ns="http://docs.oasis-open.org/ws-sx/ws-trust/200512/">
+   <soap:Header/>
+   <soap:Body>
+      <ns:RequestSecurityTokenResponseCollection>
+         <!--1 or more repetitions:-->
+         <ns:RequestSecurityTokenResponse Context="?">
+            <!--You may enter ANY elements at this point-->
+         </ns:RequestSecurityTokenResponse>
+      </ns:RequestSecurityTokenResponseCollection>
+   </soap:Body>
+</soap:Envelope>]]></con:responseContent><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://docs.oasis-open.org/ws-sx/ws-trust/200512/SecurityTokenService/RequestSecurityToken2Response"/></con:response><con:dispatchConfig/></con:mockOperation></con:mockService><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/></con:soapui-project>
